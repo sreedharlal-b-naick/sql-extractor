@@ -56,7 +56,8 @@ class FetchRepository(Node):
         # Convert dict to list of tuples: [(path, content), ...]
         files_list = list(result.get("files", {}).items())
         if len(files_list) == 0:
-            raise(ValueError("Failed to fetch files"))
+            print("No files matching the include/exclude patterns were found.")
+            return []
         print(f"Fetched {len(files_list)} files.")
         return files_list
 
